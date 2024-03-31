@@ -30,7 +30,7 @@ def clean_education(x):
     return 'Less than a Bachelors'
 
 
-@st.cache_data 
+@st.cache
 def load_data():
     df = pd.read_csv("survey_results_public.csv")
     df = df[["Country", "EdLevel", "YearsCodePro", "Employment", "ConvertedComp"]]
@@ -88,3 +88,4 @@ def show_explore_page():
 
     data = df.groupby(["YearsCodePro"])["Salary"].mean().sort_values(ascending=True)
     st.line_chart(data)
+
